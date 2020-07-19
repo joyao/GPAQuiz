@@ -48,6 +48,7 @@ var QuizArr = [];
 function getQuestions(id, type) {
 
     $("#quiztable").html("");
+    $("#submitQuiz").hide();
     $(".loader").fadeIn();
     var subject = SubjectObj.filter(item => item.id == id)[0];
     
@@ -57,10 +58,10 @@ function getQuestions(id, type) {
     var url = subject.wsurl_MC;
     if (type == "MC") {
         url = subject.wsurl_MC;
-        $("#subjecttitle").html(subject.name + "-選擇題模擬試題");
+        $("#subjecttitle").html(subject.name + "-選擇題 模擬試題");
     } else if (type == "TF") {
         url = subject.wsurl_TF;
-        $("#subjecttitle").html(subject.name + "-是非題模擬試題");
+        $("#subjecttitle").html(subject.name + "-是非題 模擬試題");
     }
     $("#subjectinfo").html(subject.info);
     $.getJSON(url, function (json_data) {
