@@ -155,7 +155,7 @@ function submitQuiz() {
                     var useranswer = $("#" + item.id + " input:checked")[0].value;
                     var realanswer = item.answer;
                     var oneQuizanswer = $("#" + item.id + " .detailanswer");
-                    if (useranswer === realanswer) {
+                    if (useranswer.toString() === realanswer.toString()) {
                         $("#" + item.id + " .detailanswer").addClass("positive");
                         $("#" + item.id + " .detailanswer").html("詳解：<br>" + item.detail);
                         if (gtype === "MC") {
