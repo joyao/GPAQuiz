@@ -48,6 +48,7 @@ var QuizArr = [];
 function getQuestions(id, type) {
 
     $("#quiztable").html("");
+    $("#quizscore").html("");
     $("#submitQuiz").hide();
     $(".loader").fadeIn();
     var subject = SubjectObj.filter(item => item.id === id)[0];
