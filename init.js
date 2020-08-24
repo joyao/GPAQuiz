@@ -11,7 +11,7 @@
         name: "實務課程",
         info: "工程及技術服務採購作業：是非 6 題；選擇 12 題<br>財物及勞務採購作業：是非 6 題；選擇 12 題<br>最有利標及評選優勝廠商：是非 6 題；選擇 12 題<br>電子採購實務：是非 6 題；選擇 12 題<br>是非：1 分/題；選擇：2 分/題",
         wsurl_MC: "https://script.google.com/macros/s/AKfycbzeaFLCgUwYfWGc0rxL3a1Un3NNIAKH6VncVg31rQ/exec",
-        wsurl_TF: "https://script.google.com/macros/s/AKfycby697A6K3w2tdyRHjwUgvkC3a4h40uoddOWCnvD/exec"
+        wsurl_TF: "https://script.google.com/macros/s/AKfycbyTrHsOgcLDKc5VrEYtHLy-gK-NXbKRuRxVsUcG/exec"
     },
     {
         id: "subject3",
@@ -171,7 +171,11 @@ function submitQuiz() {
                     }
 
                     if (index === QuizArr.length - 1) {
-                        $("#quizscore").html("分數：" + score.toString() + "/" + (QuizArr.length * 2).toString());
+                        if (gtype === "MC") {
+                            $("#quizscore").html("分數：" + score.toString() + "/" + (QuizArr.length * 2).toString());
+                        } else if (gtype === "TF") {
+                            $("#quizscore").html("分數：" + score.toString() + "/" + QuizArr.length.toString());
+                        }
                         $("#quizscore").show();
                         $(".ui.message.detailanswer").removeClass("hidden");
                         $("#submitQuiz").hide();
